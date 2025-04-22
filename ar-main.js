@@ -1,6 +1,4 @@
 window.addEventListener('DOMContentLoaded', async () => {
-
-document.addEventListener("DOMContentLoaded", function () {
   const startButton = document.getElementById("startButton");
   const scaleSlider = document.getElementById("scaleSlider");
   const captureButton = document.getElementById("capture");
@@ -45,6 +43,4 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("ARの起動に失敗しました。\n" + e.message + "\nSafariの設定でカメラを許可してください。");
     }
   });
-});
-
 });
