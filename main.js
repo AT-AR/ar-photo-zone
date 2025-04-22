@@ -1,6 +1,4 @@
 
-import { loadGLTF } from "https://cdn.jsdelivr.net/npm/mind-ar@1.1.7/dist/utils/three-utils.js";
-
 document.querySelector("#startButton").addEventListener("click", async () => {
   document.querySelector("#startButton").style.display = "none";
 
