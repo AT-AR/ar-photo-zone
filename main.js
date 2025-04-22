@@ -5,7 +5,7 @@ document.querySelector("#startButton").addEventListener("click", async () => {
   try {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      imageTargetSrc: "./marker.mind",
+      imageTargetSrc: "./assets/marker.mind",
     });
 
     const {renderer, scene, camera} = mindarThree;
@@ -37,6 +37,6 @@ document.querySelector("#startButton").addEventListener("click", async () => {
     });
 
   } catch (e) {
-    alert("ARの起動に失敗しました。原因: " + e.message + "\nSafariのカメラ許可がブロックされている可能性があります。\n設定→Safari→カメラ→許可 を確認してください。");
+    alert("ARの起動に失敗しました。\n" + e.message + "\nSafariの設定でカメラを許可してください。");
   }
 });
