@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>クジラAR体験</title>
+    <!-- Three.jsとMindARのライブラリを読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-three.prod.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      canvas { position: absolute; top: 0; left: 0; }
+    </style>
+  </head>
+  <body>
+    <!-- モジュール型JavaScriptでARの初期化 -->
+    <script type="module">
+      import { loadGLTF } from "https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/three-loaders.js";
+
+      // MindARThreeのインスタンスを作成（マーカー設定）
+      const mindarThree = new window.MINDAR.IMAGE.MindARThree({
+        container: document.body,
+        imageTargetSrc: "./target.mind", // マーカー定義ファイル
+      });
+
+      const { renderer, scene, camera } = mindarThree;
+
+      // 最初のマーカーにアンカー（表示ポイント）を設定
+      const anchor = mindarThree.addAnchor(0);
+
+      // キャラクター画像のテクスチャーを読み込み
+      const texture = new THREE.TextureLoader().load("character.png");
+      const geometry = new THREE.PlaneGeometry(1, 1);
+      const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
+      const plane = new THREE.Mesh(geometry, material);
+      anchor.group.add(plane); // アンカー位置に画像を追加
+
+      // ARの開始処理
+      const start = async () => {
+        await mindarThree.start(); // カメラ起動＆マーカー認識開始
+        renderer.setAnimationLoop(() => {
+          renderer.render(scene, camera); // 毎フレーム描画
+        });
+      };
+
+      start();
+    </script>
+  </body>
+</html>
