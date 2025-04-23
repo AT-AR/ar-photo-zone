@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>クジラAR体験</title>
-    <!-- Three.jsとMindARのライブラリを読み込み -->
+    <title>クジラAR（QRコード版）</title>
+    <!-- Three.jsとMindARライブラリの読み込み -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-three.prod.js"></script>
@@ -13,37 +13,35 @@
     </style>
   </head>
   <body>
-    <!-- モジュール型JavaScriptでARの初期化 -->
+    <!-- モジュールタイプのスクリプト（MindARの設定と表示） -->
     <script type="module">
-      import { loadGLTF } from "https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/three-loaders.js";
-
-      // MindARThreeのインスタンスを作成（マーカー設定）
+      // MindARのthree.jsバージョンを初期化
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.body,
-        imageTargetSrc: "./target.mind", // マーカー定義ファイル
+        imageTargetSrc: "./target.mind", // マーカー定義ファイル（QRコードから作成）
       });
 
       const { renderer, scene, camera } = mindarThree;
 
-      // 最初のマーカーにアンカー（表示ポイント）を設定
+      // マーカー検出時にオブジェクトを表示するためのアンカー
       const anchor = mindarThree.addAnchor(0);
 
-      // キャラクター画像のテクスチャーを読み込み
+      // キャラ画像を平面として読み込み（透過対応）
       const texture = new THREE.TextureLoader().load("character.png");
-      const geometry = new THREE.PlaneGeometry(1, 1);
+      const geometry = new THREE.PlaneGeometry(1, 1); // サイズは任意
       const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
       const plane = new THREE.Mesh(geometry, material);
-      anchor.group.add(plane); // アンカー位置に画像を追加
+      anchor.group.add(plane); // マーカー上に追加
 
-      // ARの開始処理
+      // ARのスタート処理（カメラ起動）
       const start = async () => {
-        await mindarThree.start(); // カメラ起動＆マーカー認識開始
+        await mindarThree.start();
         renderer.setAnimationLoop(() => {
           renderer.render(scene, camera); // 毎フレーム描画
         });
       };
 
-      start();
+      start(); // 開始
     </script>
   </body>
 </html>
