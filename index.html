@@ -2,46 +2,62 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>クジラAR（QRコード版）</title>
-    <!-- Three.jsとMindARライブラリの読み込み -->
+    <title>QRクジラAR（フルスクリーン対応）</title>
+    <!-- Three.jsとMindARライブラリ -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-three.prod.js"></script>
     <style>
-      body { margin: 0; overflow: hidden; }
-      canvas { position: absolute; top: 0; left: 0; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+      #ar-container {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+      }
+      canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
     </style>
   </head>
   <body>
-    <!-- モジュールタイプのスクリプト（MindARの設定と表示） -->
+    <!-- カメラ映像とARを表示するコンテナ -->
+    <div id="ar-container"></div>
+
+    <!-- モジュールスクリプト：AR設定 -->
     <script type="module">
-      // MindARのthree.jsバージョンを初期化
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
-        container: document.body,
-        imageTargetSrc: "./target.mind", // マーカー定義ファイル（QRコードから作成）
+        container: document.querySelector("#ar-container"), // 全画面に指定
+        imageTargetSrc: "./target.mind", // マーカー定義ファイル
       });
 
       const { renderer, scene, camera } = mindarThree;
 
-      // マーカー検出時にオブジェクトを表示するためのアンカー
       const anchor = mindarThree.addAnchor(0);
 
-      // キャラ画像を平面として読み込み（透過対応）
+      // クジラ画像を読み込んで透過付きで表示
       const texture = new THREE.TextureLoader().load("character.png");
-      const geometry = new THREE.PlaneGeometry(1, 1); // サイズは任意
+      const geometry = new THREE.PlaneGeometry(1, 1); // 大きさは任意で調整可
       const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
       const plane = new THREE.Mesh(geometry, material);
-      anchor.group.add(plane); // マーカー上に追加
+      anchor.group.add(plane);
 
-      // ARのスタート処理（カメラ起動）
+      // ARスタート処理
       const start = async () => {
         await mindarThree.start();
+        renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setAnimationLoop(() => {
-          renderer.render(scene, camera); // 毎フレーム描画
+          renderer.render(scene, camera);
         });
       };
 
-      start(); // 開始
+      start();
     </script>
   </body>
 </html>
