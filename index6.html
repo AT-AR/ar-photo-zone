@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地元応援！共同開発プロジェクト | ＣＢＣラジオ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cbcBlue: '#009FE3',
+                        marcheOrange: '#F39800',
+                        marcheGreen: '#00A650',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #fff; color: #333; overflow-x: hidden; scroll-behavior: smooth; }
+        .reveal { opacity: 0; transform: translateY(40px); }
+        .glass-header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .bg-gradient-main { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
+        .section-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; letter-spacing: -0.02em; }
+        .no-uppercase { text-transform: none !important; }
+        .nowrap { white-space: nowrap; display: inline-block; }
+        .hover-card { transition: all 0.4s ease; }
+        .hover-card:hover { transform: translateY(-10px); }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <header class="glass-header fixed w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center border-b border-gray-100">
+        <div class="flex items-center space-x-3">
+            <img src="image_1.png" alt="ＣＢＣラジオ" class="h-8 md:h-9">
+            <span class="hidden md:inline text-xs font-bold text-gray-400 border-l border-gray-300 pl-3">地元応援！共同開発プロジェクト</span>
+        </div>
+        <nav class="hidden lg:flex space-x-8 text-sm font-bold text-gray-600">
+            <a href="#about" class="hover:text-cbcBlue transition">歴史・目的</a>
+            <a href="#merit" class="hover:text-cbcBlue transition">メリット</a>
+            <a href="#media" class="hover:text-cbcBlue transition">放送・ショップ</a>
+            <a href="#conditions" class="hover:text-cbcBlue transition">募集要項</a>
+        </nav>
+        <a href="https://cbcr75.com" target="_blank" class="bg-cbcBlue text-white text-xs font-bold px-6 py-2.5 rounded-full hover:shadow-xl transition shadow-md no-uppercase">お問い合わせ</a>
+    </header>
+
+    <section class="relative h-[90vh] flex items-center justify-center bg-gradient-main overflow-hidden text-center">
+        <div class="container mx-auto px-6 relative z-10">
+            <p class="text-cbcBlue font-bold tracking-[0.2em] mb-6 reveal text-sm italic no-uppercase">東海エリア企業向け パートナー募集</p>
+            <h1 class="section-title font-black mb-8 reveal text-slate-900 leading-tight">
+                地元応援！<br>
+                共同開発プロジェクト
+            </h1>
+            <p class="text-xl md:text-2xl font-medium text-gray-600 mb-12 reveal italic">～ここだけの「e！モノ」を、東海エリアの企業と共に～</p>
+            <div class="reveal flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="https://cbcr75.com" target="_blank" class="bg-marcheOrange text-white text-lg font-bold px-10 py-5 rounded-full shadow-xl hover:scale-105 transition transform inline-block italic no-uppercase">プロジェクトに応募する</a>
+                <a href="https://www.cbcradioshop.jp/" target="_blank" class="bg-white text-cbcBlue border-2 border-cbcBlue text-lg font-bold px-10 py-5 rounded-full shadow-lg hover:bg-slate-50 transition transform inline-block italic no-uppercase">公式ショップを見る</a>
+            </div>
+        </div>
+        <div class="absolute top-1/4 -left-20 w-80 h-80 bg-cbcBlue/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-marcheGreen/10 rounded-full blur-3xl"></div>
+    </section>
+
+    <section id="about" class="py-32 bg-cbcBlue text-white overflow-hidden text-left relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <h2 class="text-4xl md:text-6xl font-black mb-10 tracking-tight italic no-uppercase leading-tight">
+                            トークって、<br><span class="nowrap">近い。</span>
+                        </h2>
+                        <div class="space-y-6 text-lg md:text-xl leading-relaxed opacity-90 font-medium italic text-left">
+                            <p>ＣＢＣラジオは1951年9月1日、日本初の民間放送局として放送を開始しました。</p>
+                            <p>以来、地元に根付いた地域密着メディアとして、パーソナリティの質の高いトークを中心に情報を発信し続けています。</p>
+                        </div>
+                    </div>
+                    <div class="reveal grid grid-cols-1 gap-6">
+                        <div class="p-8 bg-white/10 rounded-[2.5rem] backdrop-blur-md border border-white/20 shadow-2xl">
+                            <p class="text-xl font-bold mb-6 italic text-white/80">こんなお悩みありませんか？</p>
+                            <ul class="space-y-4 text-sm md:text-base font-medium italic">
+                                <li>・自信の商品を広く知ってほしいが「認知が上がらない」</li>
+                                <li>・「ネット販売」に挑戦したいがノウハウがない</li>
+                                <li>・「地元密着」で愛されるブランドを育てたい</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-slate-50 overflow-hidden text-center">
+        <div class="container mx-auto px-6 max-w-4xl reveal">
+            <h2 class="text-3xl md:text-5xl font-black mb-12 italic text-slate-900 leading-tight">
+                「良い（<span class="text-cbcBlue no-uppercase">e！</span>）モノ」を、<br class="md:hidden">共に創る。
+            </h2>
+            <p class="text-gray-600 text-lg md:text-xl leading-loose font-medium italic mb-12">
+                東海エリアには、販路拡大や認知向上に課題を持つ優れた企業が多く存在します。このプロジェクトは、地元で「良い（e！）モノ」を作っている企業様と手を取り合い、「e！マルシェ」限定のオリジナル商品やセットを製作し、放送局の力で世に送り出す挑戦です。
+            </p>
+        </div>
+    </section>
+
+    <section id="merit" class="py-32 bg-white text-center">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <h2 class="text-4xl md:text-6xl font-black mb-20 reveal tracking-tighter italic text-slate-900">参画する３つのメリット</h2>
+            <div class="grid lg:grid-cols-3 gap-10 text-left">
+                <div class="bg-slate-50 p-12 rounded-[3rem] shadow-xl hover-card flex flex-col">
+                    <div class="text-cbcBlue font-black text-6xl mb-8 italic opacity-20">01</div>
+                    <h3 class="text-2xl font-bold mb-6 italic text-slate-800 leading-tight">圧倒的なＰＲ力</h3>
+                    <p class="text-gray-500 leading-relaxed font-medium italic">ＣＢＣラジオの番組やＰＲ枠で商品の魅力を直接紹介。リスナーへの認知向上に直結します。</p>
+                </div>
+                <div class="bg-slate-50 p-12 rounded-[3rem] shadow-xl hover-card flex flex-col">
+                    <div class="text-marcheOrange font-black text-6xl mb-8 italic opacity-20">02</div>
+                    <h3 class="text-2xl font-bold mb-6 italic text-slate-800 leading-tight">運営ノウハウ不要</h3>
+                    <p class="text-gray-500 leading-relaxed font-medium italic">ＥＣサイトの構築・運営は不要。公式ショップの販売基盤をそのまま活用可能です。</p>
+                </div>
+                <div class="bg-slate-50 p-12 rounded-[3rem] shadow-xl hover-card flex flex-col">
+                    <div class="text-marcheGreen font-black text-6xl mb-8 italic opacity-20">03</div>
+                    <h3 class="text-2xl font-bold mb-6 italic text-slate-800 leading-tight">受注業務は代行</h3>
+                    <p class="text-gray-500 leading-relaxed font-medium italic">インターネットや電話での注文受付、コールセンター業務はＣＢＣラジオにお任せください。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="media" class="py-32 bg-slate-50 text-center">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="mb-20 reveal text-center">
+                <h2 class="text-3xl md:text-5xl font-black mb-6 italic text-slate-900">
+                    地域へ信頼を届ける <span class="text-cbcBlue no-uppercase">e！マルシェ</span>
+                </h2>
+                <p class="text-gray-500 font-medium italic max-w-4xl mx-auto leading-relaxed text-center">
+                    東海エリアの放送局ＣＢＣラジオが運営する公式通販サイト。<br>
+                    番組と連動した信頼性の高いアイテムを、インターネットやお電話でお届けします。
+                </p>
+                <div class="mt-8 text-center">
+                    <a href="https://www.cbcradioshop.jp/" target="_blank" class="inline-block text-marcheOrange font-black text-xl border-b-4 border-marcheOrange pb-1 hover:opacity-70 transition italic">
+                        e！マルシェ 公式ショップへ ＞
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 reveal text-left">
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-xl hover-card flex flex-col h-full text-left">
+                    <h4 class="text-cbcBlue font-black text-xs mb-4 italic tracking-widest uppercase">放送番組</h4>
+                    <p class="text-xl font-black mb-2 italic text-slate-800 text-left">朝からいいことマルシェ</p>
+                    <p class="text-sm text-gray-400 font-bold mb-6 italic">毎週月～木曜 朝５:20～5:30</p>
+                    <div class="mt-auto pt-6 border-t border-slate-100">
+                        <p class="text-sm leading-relaxed text-gray-600 font-medium italic">
+                            番組アシスタントの<span class="text-slate-900 font-black">山本衿奈が商品をナビゲート。</span>ＣＢＣアナウンサーとともに、朝から聴いてお得な情報をお届けします。
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-xl hover-card flex flex-col h-full text-left">
+                    <h4 class="text-marcheOrange font-black text-xs mb-4 italic tracking-widest uppercase text-left">番組内ＰＲ ①</h4>
+                    <p class="text-xl font-black mb-2 italic text-slate-800">平日・午前ＰＲ枠</p>
+                    <p class="text-sm text-gray-400 font-bold mb-6 italic text-left text-left">毎週月～金曜 朝10：40～</p>
+                    <div class="mt-auto pt-6 border-t border-slate-100 text-left">
+                        <p class="text-sm text-gray-500 font-medium mb-1">出演：</p>
+                        <p class="text-slate-900 font-black italic text-sm">山本衿奈・番組出演アナウンサー</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-xl hover-card flex flex-col h-full text-left">
+                    <h4 class="text-marcheGreen font-black text-xs mb-4 italic tracking-widest uppercase text-left text-left text-left">番組内ＰＲ ②</h4>
+                    <p class="text-xl font-black mb-2 italic text-slate-800">ＣＢＣラジオ＃プラス 内</p>
+                    <p class="text-sm text-gray-400 font-bold mb-6 italic text-left">毎週月曜 朝８:45～</p>
+                    <div class="mt-auto pt-6 border-t border-slate-100 text-left">
+                        <p class="text-sm text-gray-500 font-medium mb-1">出演：</p>
+                        <p class="text-slate-900 font-black italic text-sm text-left">番組出演タレント・アナウンサー</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="case-study" class="py-32 bg-white overflow-hidden text-center">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="mb-24 reveal text-center">
+                <h2 class="text-4xl md:text-6xl font-black mb-4 italic text-slate-900 tracking-tighter leading-tight">共同開発の実例</h2>
+                <p class="text-marcheGreen font-bold uppercase tracking-[0.3em] text-sm italic">SUCCESS STORY</p>
+            </div>
+            <div class="bg-slate-50 p-12 rounded-[4rem] shadow-2xl reveal group flex flex-col md:flex-row items-center gap-12 text-left">
+                <div class="w-full md:w-1/2 aspect-square overflow-hidden rounded-[3rem] shadow-inner bg-white flex items-center justify-center p-6 text-center">
+                    <img src="osamet_top.jpg" class="object-contain w-full h-full transition duration-500 group-hover:scale-105" alt="オサメット防災23点セット">
+                </div>
+                <div class="w-full md:w-1/2 italic text-left">
+                    <h3 class="text-cbcBlue font-black text-lg mb-2 tracking-widest no-uppercase">加賀産業株式会社</h3>
+                    <h4 class="text-3xl font-black mb-6 italic leading-tight text-slate-900">
+                        防災ヘルメット「オサメット」<br>
+                        e！マルシェ限定23点セット
+                    </h4>
+                    <p class="text-gray-500 leading-relaxed font-medium opacity-80 mb-8 italic text-left">
+                        国家検定合格品の折り畳みヘルメットを中心に、保存食や衛生用品など計23点をセットにした限定防災セットを開発。放送連動の信頼性により安心を届けました。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conditions" class="py-32 bg-slate-50 text-center">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="text-4xl md:text-6xl font-black mb-16 reveal tracking-tighter italic text-slate-900">参加企業の条件</h2>
+            <div class="grid md:grid-cols-2 gap-6 reveal text-left text-left">
+                <div class="bg-white p-8 rounded-[2.5rem] border border-cbcBlue/10 shadow-sm hover-card">
+                    <p class="text-xs font-black text-cbcBlue mb-2 italic">対象地域</p>
+                    <p class="text-lg font-bold text-slate-800 italic text-left">東海三県（愛知・岐阜・三重）の企業様限定</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] border border-marcheOrange/10 shadow-sm hover-card text-left text-left">
+                    <p class="text-xs font-black text-marcheOrange mb-2 italic">開発商品</p>
+                    <p class="text-lg font-bold text-slate-800 italic text-left text-left">「e！マルシェ」限定オリジナル商品を製作</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] border border-marcheGreen/10 shadow-sm hover-card text-left text-left">
+                    <p class="text-xs font-black text-marcheGreen mb-2 italic">価格帯</p>
+                    <p class="text-lg font-bold text-slate-800 italic text-left">商品販売価格 1万円～3万円程度の商品</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm hover-card text-left text-left text-left">
+                    <p class="text-xs font-black text-slate-400 mb-2 italic">販路制限</p>
+                    <p class="text-lg font-bold text-slate-800 italic text-left">大手モール未出店の商品（自社ECは可）</p>
+                </div>
+            </div>
+
+            <div class="mt-20 reveal text-left space-y-8 max-w-4xl mx-auto">
+                <div>
+                    <h4 class="text-lg font-black text-slate-900 mb-4 italic">【お取引に関するご注意】</h4>
+                    <p class="text-sm md:text-base text-gray-500 leading-loose font-medium italic text-left">
+                        お取引に際しましては、事前の業態および商品考査（審査）などがございます。上記の諸条件を満たしている場合でも、弊社の放送基準や考査基準に照らし合わせ、お取引を見送らせていただく場合がございます。あらかじめご了承ください。
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-slate-200">
+                    <p class="text-sm font-black text-cbcBlue italic">
+                        ※サイト掲載料・広告料などの固定費は無料です。
+                    </p>
+                    <p class="text-xs text-gray-400 mt-2 italic">
+                        ※商品製造原価および在庫管理に係る実費分については、企業様のご負担となります。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-40 bg-cbcBlue text-center relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="reveal mb-12 text-center text-center">
+                <h2 class="text-5xl md:text-8xl font-black text-white leading-none tracking-tighter mb-8 no-uppercase text-center text-center">
+                    次の「e！モノ」を、<br>共に。
+                </h2>
+                <p class="text-white/80 text-xl md:text-2xl font-bold italic leading-relaxed max-w-4xl mx-auto text-center text-center">
+                    東海エリアの魅力を、ラジオの力で加速させる。<br>
+                    下記リンクより、お気軽にご相談ください。
+                </p>
+            </div>
+            <div class="reveal text-center text-center">
+                <a href="https://cbcr75.com" target="_blank" class="bg-white text-cbcBlue text-3xl font-black px-20 py-10 rounded-full shadow-2xl hover:scale-110 transition transform inline-block no-uppercase italic">
+                    お問い合わせはこちら
+                </a>
+            </div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] text-center text-center"></div>
+    </section>
+
+    <footer class="bg-white py-24 border-t border-gray-100 text-center italic text-center">
+        <div class="container mx-auto px-6 text-center text-center">
+            <div class="mb-8 text-center text-center">
+                <img src="image_1.png" alt="ＣＢＣラジオ" class="h-10 mx-auto">
+            </div>
+            <p class="text-gray-400 font-bold mb-12 italic text-center text-center">株式会社ＣＢＣラジオ</p>
+            <p class="text-[10px] font-bold text-gray-300 tracking-[0.4em] uppercase tracking-widest text-center text-center">&copy; CBC RADIO Co., Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach((el) => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                ease: "power4.out"
+            });
+        });
+    </script>
+</body>
+</html>
